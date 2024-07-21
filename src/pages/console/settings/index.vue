@@ -1,15 +1,21 @@
 <template>
   <div class="space-y-10">
-    <ConsoleBlockHeader title="控制台" />
+    <ConsoleBlockHeader title="设置" />
   </div>
 </template>
+
 <script setup lang="ts">
+/**
+ * 页面元数据
+ */
 definePageMeta({
   layout: "console",
 });
 
-// 页头
+/**
+ * 页头
+ */
 useHead({
-  title: "控制台",
+  title: "设置",
 });
 </script>

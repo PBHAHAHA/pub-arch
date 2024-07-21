@@ -1,26 +1,27 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   // 源文件
-  srcDir: 'src',
+  srcDir: "src",
   // 配置
   runtimeConfig: {
     public: {
-      appName: 'yubing'
+      appName: "yubing",
     },
     surreal: {
-      rootUser: 'root',
-      rootPass: '123456'
-    }
+      rootUser: "root",
+      rootPass: "123456",
+    },
   },
-  modules: [
-    '@nuxt/ui'
-  ],
+  modules: ["@nuxt/ui", "@pinia/nuxt"],
   colorMode: {
-    classSuffix: ''
+    classSuffix: "",
+  },
+  pinia: {
+    storesDirs: ["./src/stores/**"],
   },
   ui: {
-    icons: ['solar','ri'], //https://icones.js.org/collection/solar|ri
-  }
-})
+    icons: ["solar", "ri"], //https://icones.js.org/collection/solar|ri
+  },
+});

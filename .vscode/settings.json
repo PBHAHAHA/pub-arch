@@ -15,6 +15,7 @@
         // tailwind
         "strings": true
     },
+    "editor.formatOnSave": true,
     "tailwindCSS.experimental.classRegex": [
         ["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
         ["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]

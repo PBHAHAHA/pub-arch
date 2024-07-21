@@ -1,5 +1,5 @@
 <template>
-    <main>
-        <slot></slot>
-    </main>
+  <main class="py-6 px-5 md:px-8 flex-1 overflow-x-scroll">
+    <slot></slot>
+  </main>
 </template>
