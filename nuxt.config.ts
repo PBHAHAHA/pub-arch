@@ -12,6 +12,9 @@ export default defineNuxtConfig({
     surreal: {
       rootUser: "root",
       rootPass: "123456",
+      url: "http://127.0.0.1:3303/rpc",
+      namespace: "bingyu",
+      database: "app",
     },
   },
   modules: ["@nuxt/ui", "@pinia/nuxt"],

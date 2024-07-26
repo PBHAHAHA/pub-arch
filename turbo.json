@@ -1,0 +1,13 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDotEnv": [".env"],
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "sdb:schema": {
+      "inputs": ["src/schema/surreal/*.surql"]
+    }
+  }
+}

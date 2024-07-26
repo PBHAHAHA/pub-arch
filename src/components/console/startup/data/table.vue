@@ -49,9 +49,7 @@ const keyword = ref("");
 const { table } = useAppConfig();
 
 // 请求数据
-const { data, pending } = await useLazyFetch<any>(
-  "https://resources.ninghao.net/nid-camp/startups.json"
-);
+const { data, pending } = await useLazyFetch<any>("/api/console/startups");
 
 // 行
 const rows = computed(() => {

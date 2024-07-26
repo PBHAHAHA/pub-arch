@@ -5,7 +5,7 @@
       ".output": true,
       ".vscode": false,
       ".npmrc": true,
-      ".gitignore": true,
+      ".gitignore": false,
       "package-lock.json": true,
       "pnpm-lock.yaml": true,
       "README.md": false,
