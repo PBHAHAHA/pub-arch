@@ -11,6 +11,7 @@ const industry = z.string();
 const teamSize = z.number().nullable();
 const isTopValuation = z.boolean();
 const isTopRevenue = z.boolean();
+const tags = z.array(z.any());
 
 /**
  * 项目
@@ -25,6 +26,7 @@ export const item = z.object({
   teamSize,
   isTopValuation,
   isTopRevenue,
+  tags,
 });
 /**
  * 列表

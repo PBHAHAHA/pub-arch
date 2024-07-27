@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="mb-4 flex justify-between">
-      <ConsoleFormSearch v-model="keyword" />
+      <ConsoleFormSearch v-model="store.keywords" />
     </div>
 
     <UTable
       :emptyState="table.emptyState"
-      :loading="pending"
-      :rows="rows"
+      :rows="store.list"
       :columns="columns"
       :loadingState="table.loadingState"
     >
@@ -36,9 +35,9 @@
 
     <div class="mb-4 flex justify-center items-center">
       <ConsoleNavigationPagination
-        v-model="page"
-        :pageCount="pageCount"
-        :total="total"
+        v-model="store.params.pagination.page"
+        :pageCount="store.params.pagination.pageSize"
+        :total="store.total"
       />
     </div>
   </div>
@@ -48,17 +47,7 @@
 const keyword = ref("");
 const { table } = useAppConfig();
 
-// 请求数据
-const { data, pending } = await useLazyFetch<any>("/api/console/startups");
-
-// 行
-const rows = computed(() => {
-  if (!data.value) return [];
-  return filtered.value.slice(
-    (page.value - 1) * pageCount.value,
-    page.value * pageCount.value
-  );
-});
+const store = useStartupStore();
 
 // 栏
 const columns = [
@@ -82,27 +71,4 @@ const columns = [
     sortable: true,
   },
 ];
-
-// 过滤
-const filtered = computed(() => {
-  if (!data.value) return [];
-
-  return data.value.filter((item: any) => {
-    return Object.values(item).some((value) => {
-      return String(value)
-        .toLowerCase()
-        .includes(keyword.value.toLocaleLowerCase());
-    });
-  });
-});
-
-// 当前页
-const page = ref(1);
-
-// 每页数量
-const pageCount = ref(5);
-// 总数
-const total = computed(() => {
-  return filtered.value.length;
-});
 </script>

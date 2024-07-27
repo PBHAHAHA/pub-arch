@@ -7,6 +7,7 @@ export const parseQuery = <ZodSchema extends z.ZodTypeAny>(
   schema?: ZodSchema
 ) => {
   const data = qs.parse(getQuery(event));
+  // console.log(data, "jiexis");
   try {
     return schema ? schema.parse(data) : data;
   } catch (error) {

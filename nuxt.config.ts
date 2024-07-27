@@ -16,6 +16,9 @@ export default defineNuxtConfig({
       namespace: "bingyu",
       database: "app",
     },
+    api: {
+      pageSize: 10,
+    },
   },
   modules: ["@nuxt/ui", "@pinia/nuxt"],
   colorMode: {
