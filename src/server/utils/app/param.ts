@@ -13,7 +13,7 @@ export const getPagination = (event: H3Event) => {
   const {
     pagination: { page, pageSize },
   } = parseQuery(event, paginationParam);
-  console.log(page, pageSize);
+  // console.log(page, pageSize);
   const start = page === 1 ? 0 : (page - 1) * pageSize;
   return { page, pageSize, start, limit: pageSize };
 };
@@ -72,7 +72,7 @@ export const getFilter = (event: H3Event) => {
   }
 
   const items: Array<string> = [];
-  console.log(filter);
+  // console.log(filter);
   forEach(filter, (v1, k1) => {
     if (isOr(k1) && isArray(v1)) {
       const item = connectWithOr(v1);
@@ -90,7 +90,7 @@ export const getFilter = (event: H3Event) => {
     });
   });
   const conditions = items.length ? items.join(" AND ") : "";
-  console.log(conditions);
+  // console.log(conditions);
   return {
     where: conditions ? `WHERE ${conditions}` : "",
     conditions,

@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import type { Algorithm } from "jsonwebtoken";
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
@@ -15,9 +16,18 @@ export default defineNuxtConfig({
       url: "http://127.0.0.1:3303/rpc",
       namespace: "bingyu",
       database: "app",
+      scope: "common",
+      tokenName: "bingyu",
     },
     api: {
       pageSize: 10,
+    },
+    // JWT
+    jwt: {
+      publicKey: "",
+      privateKey: "",
+      expiresIn: "7d",
+      algorithm: "RS256" as Algorithm,
     },
   },
   modules: ["@nuxt/ui", "@pinia/nuxt"],

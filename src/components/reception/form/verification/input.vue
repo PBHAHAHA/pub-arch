@@ -33,6 +33,8 @@
 <script setup lang="ts">
 import type UInput from "@nuxt/ui/dist/runtime/components/forms/Input.vue";
 
+const store = useReceptionStore();
+
 /**
  * 数据
  */
@@ -78,17 +80,23 @@ const canSubmit = computed(() => {
   return verificationCode.value.length === 4;
 });
 
+watch(verificationCode, (value) => {
+  store.input.verification = value;
+});
+
 /**
  * 重置
  */
-const send = () => {};
+const send = () => {
+  store.verify();
+};
 
 /**
  * 提交
  */
 const submit = () => {
   if (canSubmit.value) {
-    useToast().add({ title: "验证通过" });
+    store.signin();
   } else {
     useToast().add({ title: "验证码填写有误" });
   }

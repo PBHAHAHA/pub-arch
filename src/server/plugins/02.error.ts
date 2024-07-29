@@ -4,6 +4,6 @@ export default defineNitroPlugin(async (nitroApp) => {
   };
   nitroApp.hooks.hook("error", async (error) => {
     const _error = error as any;
-    console.log(_error);
+    console.log(_error, "02.error");
   });
 });

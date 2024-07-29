@@ -15,3 +15,15 @@ DEFINE EVENT starupUpdated ON TABLE starup WHEN $event == 'UPDATE' THEN {
         data: $after.name
     }
 };
+
+-- ------------------------------
+-- TABLE: user
+-- ------------------------------
+DEFINE INDEX nameIndex ON user FIELDS name UNIQUE ;
+DEFINE INDEX mobileIndex ON user FIELDS mobile UNIQUE;
+DEFINE INDEX emailIndex ON user FIELDS email UNIQUE;
+
+-- ------------------------------
+-- TABLE: verification
+-- ------------------------------
+DEFINE FIELD created ON verification VALUE $before OR $value OR time::now();

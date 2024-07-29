@@ -1,9 +1,9 @@
 <template>
   <form class="space-y-4">
-    <ReceptionFormIdentifierInput scene="signup" />
-    <ReceptionFormPasswordInput />
+    <ReceptionFormIdentifierInput scene="signup" v-model="store.input.name" />
+    <ReceptionFormPasswordInput v-model="store.input.password" />
     <div class="py-4">
-      <ReceptionElementButton label="注册">
+      <ReceptionElementButton label="注册" @click="store.signup">
         <template #description>
           <div class="text-center">
             <UButton
@@ -20,3 +20,6 @@
     </div>
   </form>
 </template>
+<script lang="ts" setup>
+const store = useReceptionStore();
+</script>
